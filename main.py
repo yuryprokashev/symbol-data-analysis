@@ -38,23 +38,23 @@ for s in symbol_tuples:
     api_request_array.append(r)
 symbol_candle_tuples = api.execute(api_request_array)
 
+print("PRICES")
 symbol_price_tuples = []
-strategy = prices.weighted
+strategy = prices.median
 for response in symbol_candle_tuples:
     p_tuple = prices.price_tuple(strategy, response)
     symbol_price_tuples.append(p_tuple)
-
+print(len(symbol_price_tuples[0][2]))
 print(symbol_price_tuples)
 
-symbol_adfuller_results = []
-for sp in symbol_price_tuples:
-    s_adfuller = mean_reversion.adfuller(sp)
-    symbol_adfuller_results.append(s_adfuller)
+print("ADFULLER")
+symbol_adfuller_results = map(mean_reversion.adfuller, symbol_price_tuples)
+print(list(symbol_adfuller_results))
 
-print(symbol_adfuller_results)
+print("HURST")
+symbol_hurst_results = map(mean_reversion.hurst, symbol_price_tuples)
+print(list(symbol_hurst_results))
 
-symbol_hurst_results = []
-for sp in symbol_price_tuples:
-    s_hurst = mean_reversion.hurst(sp)
-    symbol_hurst_results.append(s_hurst)
-print(symbol_hurst_results)
+print("HALF LIFE")
+symbol_half_life_results = map(mean_reversion.half_life, symbol_price_tuples)
+print(list(symbol_half_life_results))
