@@ -10,6 +10,7 @@ from_date = datetime.datetime(2021, 1, 1, 0, 0, 0, 0)
 to_date = datetime.datetime(2021, 6, 20, 0, 0, 0, 0)
 
 symbol_tuples = [
+    ("stock", "MSFT"),
     ("stock", "BB"),
     ("stock", "CHKP"),
     ("stock", "CSCO"),
@@ -18,7 +19,10 @@ symbol_tuples = [
     ("stock", "FEYE"),
     ("stock", "FSCN1V"),
     ("crypto", "BINANCE:BNBEUR"),
-    ("crypto", "BINANCE:HOTBNB")
+    ("crypto", "BINANCE:HOTBNB"),
+    ("crypto", "BINANCE:DOTEUR"),
+    ("crypto", "BINANCE:RUNEBNB"),
+    ("crypto", "BINANCE:DOGEEUR")
 ]
 
 # Getting data section
