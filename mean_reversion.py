@@ -1,5 +1,7 @@
+import numpy as np
 import statsmodels.tsa.stattools as stats
 from hurst import compute_Hc
+import statsmodels.api as sm
 
 
 def adfuller(symbol_price_tuple):
