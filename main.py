@@ -8,6 +8,7 @@ import datetime
 
 from_date = datetime.datetime(2021, 1, 1, 0, 0, 0, 0)
 to_date = datetime.datetime(2021, 6, 20, 0, 0, 0, 0)
+resolution = "HOUR"
 
 symbol_tuples = [
     ("stock", "MSFT"),
@@ -33,7 +34,7 @@ api_request_array = []
 for s in symbol_tuples:
     category = s[0]
     symbol = s[1]
-    r = api.request().category(category).symbol(symbol).start(from_date).end(to_date).resolution("DAY")
+    r = api.request().category(category).symbol(symbol).start(from_date).end(to_date).resolution(resolution)
     api_request_array.append(r)
 symbol_candle_tuples = api.execute(api_request_array)
 
