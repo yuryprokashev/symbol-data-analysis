@@ -25,7 +25,7 @@ def hurst(symbol_price_tuple):
     while the third element is the result of the hurst function
     """
     price_array = symbol_price_tuple[2]
-    if len(price_array) > 0:
+    if len(price_array) > 100:
         result = compute_Hc(price_array, kind="price", simplified=True)
     else:
         result = []
